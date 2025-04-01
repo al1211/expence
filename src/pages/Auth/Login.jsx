@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Inputs/Input";
 
 import { validateEmail } from "../../utils/helpers";
+import axiosInstance from "../../utils/axiosInstance";
+import { API_PATH } from "../../utils/apipath";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +29,26 @@ const Login = () => {
     setError("");
 
     // Login API  call
+
+    try{
+      const response=await axiosInstance.post(API_PATH.AUTH.LOGIN,{
+        email,
+        password,
+
+    });
+    const {token,user}=response.data;
+    if(token){
+      localStorage.setItem("token",token);
+      navigate("/dashboard");
+    }
+    }catch(err){
+      if(err.response && err.response.data.message){
+        setError(err.response.data.message);
+      }else{
+        setError("Something went wrong. Please try again.");
+      }
   };
+}
   return (
     <AuthLayouts>
       <div className="lg-w[70%] h-3/4 md:h-full flex flex-col justify-center">
