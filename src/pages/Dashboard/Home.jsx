@@ -9,6 +9,10 @@ import InfoCard from '../../components/Cards/InfoCard';
 import { LuHandCoins,LuWalletMinimal } from 'react-icons/lu';
 import { IoMdCard} from 'react-icons/io';
 import { addThousandSepartor } from '../../utils/helpers';
+import RecentTransaction from '../../components/Dashboard/RecentTransaction';
+import FinancialOverview from '../../components/Dashboard/FinancialOverview';
+import ExpenseTransction from '../../components/Dashboard/ExpenseTransction';
+import Last30daysTransaction from '../../components/Dashboard/Last30daysTransaction';
 
 const Home = () => {
   useUserAuth();
@@ -26,6 +30,7 @@ const Home = () => {
 
       if(response.data){
         setDashboardData(response.data);
+        
       }
     }catch(err){
       console.error("Something went wrong. please try agin later:", err);
@@ -40,7 +45,7 @@ const Home = () => {
   return (
     <DashboradeLayout activeMenu="Dashboard">
       <div className='my-5 mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-1'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           <InfoCard
           icon={<IoMdCard/>}
           label="Total Balance"
@@ -58,6 +63,26 @@ const Home = () => {
           label="Total Expense"
           value={addThousandSepartor(dashboardData?.totalExpense || 0)}
           color="bg-red-500"
+          />
+        </div>
+
+
+        <div  className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+          <RecentTransaction
+           transaction={dashboardData?.recentTransaction} 
+           onSeeMore={()=>navigate('/expense')}
+          />
+          <FinancialOverview
+          totalBalance={dashboardData?.totalBalance || 5008}
+          totalIncome={dashboardData?.totalIncome ||2999}
+          totalExpense={dashboardData?.totalExpense ||111} 
+          />
+          <ExpenseTransction
+           transaction={dashboardData?.last30daysTransaction?.transaction || []}
+           onSeeMore={()=>navigate('/expense')}
+          />
+          <Last30daysTransaction 
+           data={dashboardData?.last30daysExpense?.transaction || []}
           />
         </div>
       </div>

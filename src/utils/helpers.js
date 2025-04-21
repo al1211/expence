@@ -21,3 +21,12 @@ export const addThousandSepartor=(num)=>{
     const formattedInteger=integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
     return fractionalPart?`${formattedInteger}.${fractionalPart}`:formattedInteger;
 };
+
+
+export const prepareExpenseBarChartData=(data=[])=>{
+    const chartData=data.map((item)=>({
+        category:item?.catrgory,
+        amount:item?.amount,
+    }))
+    return chartData;
+}
