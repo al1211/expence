@@ -5,13 +5,13 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
 import Login from "./pages/Auth/Login";
 import SingUp from "./pages/Auth/SingUp";
 import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expence from "./pages/Dashboard/Expence";
 import UserProvider, { UserContext } from "./context/UserContext";
+import {Toaster} from "react-hot-toast"
 function App() {
   return (
     <UserProvider>
@@ -27,6 +27,7 @@ function App() {
           </Routes>
         </Router>
       </div>
+      <Toaster toastOption={{className:"",style:{fontSize:'13px'}}}/>
     </UserProvider>
   );
 }

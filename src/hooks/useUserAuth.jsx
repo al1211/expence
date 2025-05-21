@@ -19,7 +19,7 @@ export const useUserAuth = () => {
                     updateUser(response.data);
                 }
             }catch(err){
-                console.error("Error fetching user info:", err);
+                console.error(err,"Error fetching user info:");
                 if(isMounted    ){
                     clearUser();
                     navigate("/login");

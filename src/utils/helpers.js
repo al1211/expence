@@ -1,3 +1,5 @@
+
+import moment from "moment"
 export const validateEmail=(email)=>{
     const   reges=/^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
     return reges.test(email);
@@ -28,5 +30,22 @@ export const prepareExpenseBarChartData=(data=[])=>{
         category:item?.catrgory,
         amount:item?.amount,
     }))
+    return chartData;
+}
+
+
+export const prepareIncomeBarChartData=(data=[])=>{
+      if (!Array.isArray(data)) {
+    console.warn("Invalid data passed to prepareIncomeBarChartData");
+    return [];
+  }
+    const sortedData=[...data].sort((a,b)=>new Date(a.date)-new Date(b.date));
+
+    const chartData=sortedData.map((item)=>({
+        month:moment(item?.date).format("Do MMM"),
+        amount:item?.amount,
+        source:item?.source
+    }));
+
     return chartData;
 }
