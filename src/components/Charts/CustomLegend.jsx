@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CustomLegend = ({payload}) => {
+  
   return (
     <div className='flex felx-wrap justify-center items-center gap-2 mt-2 space-x-2'>
         {payload.map((entry,index)=>(

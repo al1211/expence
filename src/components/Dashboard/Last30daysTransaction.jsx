@@ -11,6 +11,7 @@ const Last30daysTransaction = ({data}) => {
     return ()=>{}
   }
   ,[data])
+  console.log("30",data);
   return (
     <div className='card col-span-1'>
       <div className='flex items-center justify-between'>

@@ -7,7 +7,7 @@ const FinancialOverview = ({totalBalance, totalIncome,totalExpense}) => {
         {name:"Total Expense",amount:totalExpense, },
         {name:"Total Income",amount:totalIncome, },
     ];
-
+   console.log("balance data",BalanceData)
 
   return (
     <div className='card'>
@@ -18,7 +18,7 @@ const FinancialOverview = ({totalBalance, totalIncome,totalExpense}) => {
         <CustomPieChart
         data={BalanceData}
         label="Total Balance"  
-        totalAmount={`${totalBalance}`}
+        totalAmount={`$${totalBalance}`}
         color={COLORS}
         showTextAnchor 
         />

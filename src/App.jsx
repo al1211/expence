@@ -23,7 +23,7 @@ function App() {
             <Route path="/singup" element={<SingUp />} />
             <Route path="/dashboard" element={<Home />} />
             <Route path="/income" element={<Income />} />
-            <Route path="/expence" element={<Expence />} />
+            <Route path="/expense" element={<Expence />} />
           </Routes>
         </Router>
       </div>

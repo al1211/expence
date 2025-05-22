@@ -40,7 +40,7 @@ const Income = () => {
       setLoading(false);
     }
   };
-
+  console.log(incomeData);
   // handle add Income
   const handleAddIncome = async (income) => {
     const { source, amount, date, icon } = income;

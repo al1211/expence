@@ -64,7 +64,7 @@ const Home = () => {
           <InfoCard
             icon={<LuWalletMinimal />}
             label="Total Expense"
-            value={addThousandSepartor(dashboardData?.totalExpense || 0)}
+            value={addThousandSepartor(dashboardData?.totalExpence || 0)}
             color="bg-red-500"
           />
         </div>
@@ -75,28 +75,28 @@ const Home = () => {
             onSeeMore={() => navigate("/expense")}
           />
           <FinancialOverview
-            totalBalance={dashboardData?.totalBalance || 5008}
-            totalIncome={dashboardData?.totalIncome || 2999}
-            totalExpense={dashboardData?.totalExpense || 111}
+            totalBalance={dashboardData?.totalBalance || 0}
+            totalIncome={dashboardData?.totalIncome || 0}
+            totalExpense={dashboardData?.totalExpence || 0}
           />
           <ExpenseTransction
             transaction={
-              dashboardData?.last30daysTransaction?.transaction || []
+              dashboardData?.last30daysExpence?.transaction || []
             }
             onSeeMore={() => navigate("/expense")}
           />
           <Last30daysTransaction
-            data={dashboardData?.last30daysExpense?.transaction || []}
+            data={dashboardData?.last30daysExpence?.transaction || []}
           />
           <RecentIncomeWithChart
             data={
-              dashboardData?.last60daysIncome?.transaction.slice(1, 4) || []
+              dashboardData?.last60daysIncome?.transaction.slice(0,4) || []
             }
             totalIncome={dashboardData?.totalIncome || 0}
           />
 
           <RecentIncome
-            transaction={dashboardData?.last60DaysIncome?.transaction || []}
+            transaction={dashboardData?.last60daysIncome?.transaction || []}
             onSeeMore={() => navigate("/income")}
           />
         </div>

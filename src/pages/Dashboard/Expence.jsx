@@ -1,8 +1,14 @@
 import React from 'react'
+import { useUserAuth } from '../../hooks/useUserAuth'
+import DashboradeLayout from '../../components/Layout/DashboradeLayout';
 
 const Expence = () => {
+  
   return (
-    <div>Expence</div>
+    
+    <DashboradeLayout activeMenu="Expense">
+  <div className="my-5 mx-auto"></div>
+    </DashboradeLayout>
   )
 }
 

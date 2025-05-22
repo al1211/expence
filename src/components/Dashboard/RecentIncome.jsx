@@ -15,9 +15,9 @@ const RecentIncome = ({onSeeMore,transaction}) => {
             {transaction?.slice(0,5)?.map((item,index)=>(
                 <TransactionInfoCard
                 key={index}
-                item={item.source}
+                source={item.source}
                 icon={item.icon}
-                moment={moment(item.date).format("DD MM YYYY")}
+                date={moment(item.date).format('DD MMM YYYY')} 
                 amount={item.amount}
                 type="income"
                 hiddenDeleteBtn/>
