@@ -35,10 +35,7 @@ export const prepareExpenseBarChartData=(data=[])=>{
 
 
 export const prepareIncomeBarChartData=(data=[])=>{
-      if (!Array.isArray(data)) {
-    console.warn("Invalid data passed to prepareIncomeBarChartData");
-    return [];
-  }
+    
     const sortedData=[...data].sort((a,b)=>new Date(a.date)-new Date(b.date));
 
     const chartData=sortedData.map((item)=>({

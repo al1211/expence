@@ -4,13 +4,16 @@ import { LuPlus } from "react-icons/lu";
 import { prepareIncomeBarChartData } from "../../utils/helpers";
 import CustomBarChart from "../Charts/CustomBarChart";
 const IncomeOverview = ({ transaction, onAddIncome }) => {
+  
   const [chartData, setChartData] = useState([]);
   useEffect(() => {
-    const result = prepareIncomeBarChartData(transaction);
-    setChartData(result);
+  const result = prepareIncomeBarChartData(transaction);
+ 
+  setChartData(result);
 
     return () => {};
   }, [transaction]);
+
   return (
     <div className="card">
       <div className="flex items-center justify-between">

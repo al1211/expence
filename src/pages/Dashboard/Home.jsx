@@ -32,7 +32,7 @@ const Home = () => {
         `${API_PATH.DASHBOARD.GET_DATA}`
       );
 
-      console.log(response.data);
+     
       setDashboardData(response.data);
     } catch (err) {
       console.error("Something went wrong. please try agin later:", err);

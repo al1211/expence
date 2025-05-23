@@ -13,7 +13,7 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
 
     setChartData(dataArr);
   };
-  console.log("chartdata",totalIncome);
+
   useEffect(() => {
     prepareChartData();
 
