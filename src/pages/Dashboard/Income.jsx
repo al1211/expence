@@ -19,7 +19,7 @@ const Income = () => {
     data: null,
   });
 const [opneAddIncome, setOpneAddIncome] = useState(false);
-  const token = localStorage.getItem("token");
+  
 
   // get All Income data details
   const fetchIncomedatails = async () => {
