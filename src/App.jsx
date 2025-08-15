@@ -24,6 +24,7 @@ function App() {
             <Route path="/dashboard" element={<Home />} />
             <Route path="/income" element={<Income />} />
             <Route path="/expense" element={<Expence />} />
+           
           </Routes>
         </Router>
       </div>
