@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:8000';
+export const BASE_URL = 'https://expencebackend-sbr6.onrender.com';
 
 // utils/api/path.js
 export const API_PATH = {
